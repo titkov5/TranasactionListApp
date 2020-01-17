@@ -10,21 +10,21 @@ import Foundation
 
 class TransactionWidgetRowViewModel {
     
-    var model: TransactionWidget?
+    private(set) var model: TransactionWidget?
     
     init(model: TransactionWidget?) {
         self.model = model
     }
     
-    func transactionTitle() -> String {
+    var transactionTitle: String {
         return model?.transaction.title ?? "-"
     }
     
-    func transactionAmount() -> String {
+    var transactionAmount: String {
         return model?.transaction.amount.amountAsString() ?? " - "
     }
     
-    func transactionImageName() -> String {
+    var transactionImageName: String {
         
         if model?.transaction.type == .cashback {
             return "cashback"

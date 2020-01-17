@@ -10,18 +10,18 @@ import Foundation
 
 final class TransactionsListViewModel: ObservableObject {
     
-    @Published var transactions: [TransactionViewModel] = []
+    @Published var dailyTransactionsFeed: [DailyTransactionsFeedViewModel] = []
     
     init() {
-        self.loadTransactions()
+        self.loadDailyFeed()
     }
     
-    private func loadTransactions() {
+    private func loadDailyFeed() {
         GraphAPI.shared.apollo.fetch(query: TransactionsFeedQuery()) { [weak self] result in
             switch result {
                 case .success(let graphQLResult):
                     if let feedItems = graphQLResult.data?.dailyTransactionsFeed?.compactMap({ $0 }) {
-                        self?.mergeTransactionModels(feedItems)
+                        self?.merge(feedItems)
                     }
                     
                 case .failure(let error):
@@ -30,18 +30,17 @@ final class TransactionsListViewModel: ObservableObject {
         }
     }
     
-    private func mergeTransactionModels(_ feedItems: [DailyTransactionsFeed]) {
-        var newTransactions: [TransactionViewModel] = []
+    private func merge(_ feedItems: [DailyTransactionsFeed]) {
+        var newFeed: [DailyTransactionsFeedViewModel] = []
         var index = 0
         for item in feedItems {
             if let feedItemType = TransactionFeedItemType(rawValue: item.__typename) {
-                let transactionViewModel = TransactionViewModel(model: item, type: feedItemType, id: index)
-                newTransactions.append(transactionViewModel)
+                let transactionViewModel = DailyTransactionsFeedViewModel(model: item, type: feedItemType, id: index)
+                newFeed.append(transactionViewModel)
                 index += 1
             }
         }
-        self.transactions = newTransactions
+        self.dailyTransactionsFeed = newFeed
     }
     
 }
-

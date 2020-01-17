@@ -14,7 +14,7 @@ struct TransactionsList: View {
 
     var body: some View {
         ScrollView {
-            ForEach(viewModel.transactions) { transactionViewModel in
+            ForEach(viewModel.dailyTransactionsFeed) { transactionViewModel in
                 transactionViewModel.generatedView()
             }
         }

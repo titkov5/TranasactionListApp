@@ -31,7 +31,8 @@ struct DaySectionWidgetView: View {
                     .fontWeight(.regular)
                 Spacer()
                     .frame(width: 30)
-            }.frame(height: 60)
+            }
+            .frame(height: 60)
         }
     }
 }

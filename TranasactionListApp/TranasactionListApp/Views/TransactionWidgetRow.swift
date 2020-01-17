@@ -16,18 +16,16 @@ struct TransactionWidgetRow: View {
         HStack {
             Spacer()
                 .frame(width: 30)
-            
-            Image(viewModel.transactionImageName())
+            Image(viewModel.transactionImageName)
                 .frame(width: 47, height: 47, alignment: .center)
                 .background(imageGray)
                 .cornerRadius(20)
-            
             Spacer()
                 .frame(width: 15)
-            Text(viewModel.transactionTitle())
+            Text(viewModel.transactionTitle)
                 .fontWeight(.light)
             Spacer()
-            Text(viewModel.transactionAmount())
+            Text(viewModel.transactionAmount)
                 .fontWeight(.light)
             Spacer()
                 .frame(width: 30)
