@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		351AF23123CECED90090EB7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF23023CECED90090EB7F /* AppDelegate.swift */; };
 		351AF23323CECED90090EB7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF23223CECED90090EB7F /* SceneDelegate.swift */; };
-		351AF23523CECED90090EB7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF23423CECED90090EB7F /* ContentView.swift */; };
 		351AF23723CECEDD0090EB7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351AF23623CECEDD0090EB7F /* Assets.xcassets */; };
 		351AF23A23CECEDD0090EB7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351AF23923CECEDD0090EB7F /* Preview Assets.xcassets */; };
 		351AF23D23CECEDD0090EB7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351AF23B23CECEDD0090EB7F /* LaunchScreen.storyboard */; };
@@ -22,6 +21,9 @@
 		351AF26923D07CC90090EB7F /* TransactionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF26823D07CC90090EB7F /* TransactionsList.swift */; };
 		351AF26C23D081570090EB7F /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF26B23D081570090EB7F /* TransactionsListViewModel.swift */; };
 		351AF26E23D0819A0090EB7F /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF26D23D0819A0090EB7F /* TransactionViewModel.swift */; };
+		351AF27323D0BF410090EB7F /* DaySectionWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27223D0BF410090EB7F /* DaySectionWidgetView.swift */; };
+		351AF27523D0BF540090EB7F /* TransactionWidgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27423D0BF540090EB7F /* TransactionWidgetRow.swift */; };
+		351AF27723D0DD240090EB7F /* CashBackTransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27623D0DD240090EB7F /* CashBackTransactionRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 		351AF22D23CECED90090EB7F /* TranasactionListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranasactionListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		351AF23023CECED90090EB7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		351AF23223CECED90090EB7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		351AF23423CECED90090EB7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		351AF23623CECEDD0090EB7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		351AF23923CECEDD0090EB7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		351AF23C23CECEDD0090EB7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,9 @@
 		351AF26823D07CC90090EB7F /* TransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsList.swift; sourceTree = "<group>"; };
 		351AF26B23D081570090EB7F /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
 		351AF26D23D0819A0090EB7F /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		351AF27223D0BF410090EB7F /* DaySectionWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySectionWidgetView.swift; sourceTree = "<group>"; };
+		351AF27423D0BF540090EB7F /* TransactionWidgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionWidgetRow.swift; sourceTree = "<group>"; };
+		351AF27623D0DD240090EB7F /* CashBackTransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBackTransactionRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +99,12 @@
 		351AF22F23CECED90090EB7F /* TranasactionListApp */ = {
 			isa = PBXGroup;
 			children = (
+				351AF26F23D0BB240090EB7F /* Models */,
 				351AF26A23D0812D0090EB7F /* ViewModels */,
 				351AF26723D07C980090EB7F /* Views */,
 				351AF25523CED1830090EB7F /* GraphQL */,
 				351AF23023CECED90090EB7F /* AppDelegate.swift */,
 				351AF23223CECED90090EB7F /* SceneDelegate.swift */,
-				351AF23423CECED90090EB7F /* ContentView.swift */,
 				351AF23623CECEDD0090EB7F /* Assets.xcassets */,
 				351AF23B23CECEDD0090EB7F /* LaunchScreen.storyboard */,
 				351AF23E23CECEDD0090EB7F /* Info.plist */,
@@ -141,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				351AF26823D07CC90090EB7F /* TransactionsList.swift */,
+				351AF27223D0BF410090EB7F /* DaySectionWidgetView.swift */,
+				351AF27423D0BF540090EB7F /* TransactionWidgetRow.swift */,
+				351AF27623D0DD240090EB7F /* CashBackTransactionRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +159,13 @@
 				351AF26D23D0819A0090EB7F /* TransactionViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		351AF26F23D0BB240090EB7F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,9 +304,11 @@
 				351AF23323CECED90090EB7F /* SceneDelegate.swift in Sources */,
 				351AF26923D07CC90090EB7F /* TransactionsList.swift in Sources */,
 				351AF26423CF47D10090EB7F /* API.swift in Sources */,
-				351AF23523CECED90090EB7F /* ContentView.swift in Sources */,
+				351AF27723D0DD240090EB7F /* CashBackTransactionRow.swift in Sources */,
 				351AF26623CF4B120090EB7F /* GraphAPI.swift in Sources */,
+				351AF27523D0BF540090EB7F /* TransactionWidgetRow.swift in Sources */,
 				351AF26E23D0819A0090EB7F /* TransactionViewModel.swift in Sources */,
+				351AF27323D0BF410090EB7F /* DaySectionWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

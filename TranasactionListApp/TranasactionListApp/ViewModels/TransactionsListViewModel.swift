@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 final class TransactionsListViewModel: ObservableObject {
     
     @Published var transactions: [TransactionViewModel] = []
@@ -21,10 +20,8 @@ final class TransactionsListViewModel: ObservableObject {
         GraphAPI.shared.apollo.fetch(query: TransactionsFeedQuery()) { [weak self] result in
             switch result {
             case .success(let graphQLResult):
-                //[TranasactionListApp.TransactionsFeedQuery.Data.DailyTransactionsFeed]
-                if let transactionsFeed = graphQLResult.data?.dailyTransactionsFeed?.compactMap({ $0?.__typename }) {
-                  //  print("Success! Result: ", transactionsFeed)
-                    self?.mergeTransactionModels(transactionsFeed)
+                if let feedItems = graphQLResult.data?.dailyTransactionsFeed?.compactMap({ $0 }) {
+                   self?.mergeTransactionModels(feedItems)
                 }
                 
             case .failure(let error):
@@ -33,11 +30,13 @@ final class TransactionsListViewModel: ObservableObject {
         }
     }
     
-    private func mergeTransactionModels(_ transactionsFeed: [String]) {
+    private func mergeTransactionModels(_ feedItems: [DailyTransactionsFeed]) {
         var newTransactions: [TransactionViewModel] = []
-        for type in transactionsFeed {
-            let transactionViewModel = TransactionViewModel(type: type)
-            newTransactions.append(transactionViewModel)
+        for item in feedItems {
+            if let feedItemType = TransactionFeedItemType(rawValue: item.__typename) {
+                let transactionViewModel = TransactionViewModel(model: item, type: feedItemType)
+                newTransactions.append(transactionViewModel)
+            }
         }
         self.transactions = newTransactions
     }

@@ -9,16 +9,40 @@
 import Foundation
 import SwiftUI
 
-struct TransactionViewModel: Identifiable {
-    let type: String
+typealias DailyTransactionsFeed = TranasactionListApp.TransactionsFeedQuery.Data.DailyTransactionsFeed
+typealias DaySectionWidget = DailyTransactionsFeed.AsDaySectionWidget
+typealias TransactionWidget = DailyTransactionsFeed.AsTransactionWidget
+typealias DailyAmount = TransactionsFeedQuery.Data.DailyTransactionsFeed.AsDaySectionWidget.Amount
+typealias Transaction = TransactionsFeedQuery.Data.DailyTransactionsFeed.AsTransactionWidget.Transaction
+typealias TransactionAmount  = TransactionsFeedQuery.Data.DailyTransactionsFeed.AsTransactionWidget.Transaction.Amount
+enum TransactionFeedItemType: String {
+    case TransactionWidget
+    case DaySectionWidget
+}
+
+struct TransactionViewModel: Identifiable, Equatable {
+    let model: DailyTransactionsFeed
+    let itemType: TransactionFeedItemType
     private(set) var id: Int
     
-    init(type: String = "") {
-        self.type = type
-        self.id = type.hashValue
+    init(model: DailyTransactionsFeed, type: TransactionFeedItemType) {
+        self.itemType = type
+        self.model = model
+        self.id = type.rawValue.hashValue
     }
     
-    func view() -> some View {
-       return Text(self.type)
+    func generatedView() ->some View {
+        var color = Color.white
+        switch itemType {
+            //TODO unwrapp
+        case .TransactionWidget:
+            return AnyView(TransactionWidgetRow(model: model.asTransactionWidget!).body)
+        case .DaySectionWidget:
+          return AnyView( DaySectionWidgetView(model: model.asDaySectionWidget!))
+        }
+      }
+    
+    static func == (lhs: TransactionViewModel, rhs: TransactionViewModel) -> Bool {
+        return lhs.id == lhs.id
     }
 }

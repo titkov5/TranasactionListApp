@@ -15,14 +15,23 @@ struct TransactionsList: View {
     var body: some View {
         ScrollView {
             ForEach(viewModel.transactions) { transactionViewModel in
-                Text(transactionViewModel.type)
+                Section(header: Text("Important tasks")) {
+                    transactionViewModel.generatedView()
+                }
+              
+                Section(header: Text("Important tasks")) {
+                    transactionViewModel.generatedView()
+                }
+                
             }
         }
     }
 }
 
 struct TransactionsList_Previews: PreviewProvider {
+    
     static var previews: some View {
-        TransactionsList()
+        TransactionsList().environmentObject(TransactionsListViewModel())
     }
+    
 }
