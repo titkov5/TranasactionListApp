@@ -15,14 +15,7 @@ struct TransactionsList: View {
     var body: some View {
         ScrollView {
             ForEach(viewModel.transactions) { transactionViewModel in
-                Section(header: Text("Important tasks")) {
-                    transactionViewModel.generatedView()
-                }
-              
-                Section(header: Text("Important tasks")) {
-                    transactionViewModel.generatedView()
-                }
-                
+                transactionViewModel.generatedView()
             }
         }
     }

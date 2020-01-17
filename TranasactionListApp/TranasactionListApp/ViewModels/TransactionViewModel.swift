@@ -9,38 +9,33 @@
 import Foundation
 import SwiftUI
 
-typealias DailyTransactionsFeed = TranasactionListApp.TransactionsFeedQuery.Data.DailyTransactionsFeed
-typealias DaySectionWidget = DailyTransactionsFeed.AsDaySectionWidget
-typealias TransactionWidget = DailyTransactionsFeed.AsTransactionWidget
-typealias DailyAmount = TransactionsFeedQuery.Data.DailyTransactionsFeed.AsDaySectionWidget.Amount
-typealias Transaction = TransactionsFeedQuery.Data.DailyTransactionsFeed.AsTransactionWidget.Transaction
-typealias TransactionAmount  = TransactionsFeedQuery.Data.DailyTransactionsFeed.AsTransactionWidget.Transaction.Amount
-enum TransactionFeedItemType: String {
-    case TransactionWidget
-    case DaySectionWidget
-}
-
 struct TransactionViewModel: Identifiable, Equatable {
     let model: DailyTransactionsFeed
     let itemType: TransactionFeedItemType
     private(set) var id: Int
     
-    init(model: DailyTransactionsFeed, type: TransactionFeedItemType) {
+    init(model: DailyTransactionsFeed, type: TransactionFeedItemType, id: Int) {
         self.itemType = type
         self.model = model
-        self.id = type.rawValue.hashValue
+        self.id = id
     }
     
-    func generatedView() ->some View {
-        var color = Color.white
+    func generatedView() -> some View {
+        
         switch itemType {
-            //TODO unwrapp
-        case .TransactionWidget:
-            return AnyView(TransactionWidgetRow(model: model.asTransactionWidget!).body)
-        case .DaySectionWidget:
-          return AnyView( DaySectionWidgetView(model: model.asDaySectionWidget!))
-        }
-      }
+            case .TransactionWidget:
+                let transactionWidget = model.asTransactionWidget
+                let transactionWidgetRowViewModel = TransactionWidgetRowViewModel(model: transactionWidget)
+                if transactionWidget?.transaction.type == .regular {
+                    return AnyView(TransactionWidgetRow(viewModel: transactionWidgetRowViewModel))
+                } else {
+                    return AnyView(CashBackTransactionRow(viewModel: transactionWidgetRowViewModel))
+                }
+            case .DaySectionWidget:
+                let dayWidgetViewModel = DaySectionWidgetViewModel(model: model.asDaySectionWidget, shouldShowTopSeparator: self.id != 0 )
+                return AnyView(DaySectionWidgetView(viewModel: dayWidgetViewModel))
+            }
+    }
     
     static func == (lhs: TransactionViewModel, rhs: TransactionViewModel) -> Bool {
         return lhs.id == lhs.id

@@ -24,6 +24,14 @@
 		351AF27323D0BF410090EB7F /* DaySectionWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27223D0BF410090EB7F /* DaySectionWidgetView.swift */; };
 		351AF27523D0BF540090EB7F /* TransactionWidgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27423D0BF540090EB7F /* TransactionWidgetRow.swift */; };
 		351AF27723D0DD240090EB7F /* CashBackTransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27623D0DD240090EB7F /* CashBackTransactionRow.swift */; };
+		351AF27C23D1817E0090EB7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27B23D1817E0090EB7F /* Constants.swift */; };
+		351AF27F23D185590090EB7F /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF27E23D185590090EB7F /* DateFormatter.swift */; };
+		351AF28123D189E50090EB7F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF28023D189E50090EB7F /* String.swift */; };
+		351AF28323D18BD20090EB7F /* DailyAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF28223D18BD20090EB7F /* DailyAmount.swift */; };
+		351AF28523D190840090EB7F /* TransactionAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF28423D190840090EB7F /* TransactionAmount.swift */; };
+		351AF28723D199A50090EB7F /* TransactionWidgetRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF28623D199A50090EB7F /* TransactionWidgetRowViewModel.swift */; };
+		351AF28B23D1AE2C0090EB7F /* DaySectionWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF28A23D1AE2C0090EB7F /* DaySectionWidgetViewModel.swift */; };
+		351AF28E23D1B38B0090EB7F /* GraphQLModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351AF28D23D1B38B0090EB7F /* GraphQLModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +65,14 @@
 		351AF27223D0BF410090EB7F /* DaySectionWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySectionWidgetView.swift; sourceTree = "<group>"; };
 		351AF27423D0BF540090EB7F /* TransactionWidgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionWidgetRow.swift; sourceTree = "<group>"; };
 		351AF27623D0DD240090EB7F /* CashBackTransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBackTransactionRow.swift; sourceTree = "<group>"; };
+		351AF27B23D1817E0090EB7F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		351AF27E23D185590090EB7F /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		351AF28023D189E50090EB7F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		351AF28223D18BD20090EB7F /* DailyAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAmount.swift; sourceTree = "<group>"; };
+		351AF28423D190840090EB7F /* TransactionAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmount.swift; sourceTree = "<group>"; };
+		351AF28623D199A50090EB7F /* TransactionWidgetRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionWidgetRowViewModel.swift; sourceTree = "<group>"; };
+		351AF28A23D1AE2C0090EB7F /* DaySectionWidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySectionWidgetViewModel.swift; sourceTree = "<group>"; };
+		351AF28D23D1B38B0090EB7F /* GraphQLModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +115,11 @@
 		351AF22F23CECED90090EB7F /* TranasactionListApp */ = {
 			isa = PBXGroup;
 			children = (
-				351AF26F23D0BB240090EB7F /* Models */,
+				351AF28C23D1B3720090EB7F /* Models */,
 				351AF26A23D0812D0090EB7F /* ViewModels */,
 				351AF26723D07C980090EB7F /* Views */,
 				351AF25523CED1830090EB7F /* GraphQL */,
+				351AF27A23D1814C0090EB7F /* Common */,
 				351AF23023CECED90090EB7F /* AppDelegate.swift */,
 				351AF23223CECED90090EB7F /* SceneDelegate.swift */,
 				351AF23623CECEDD0090EB7F /* Assets.xcassets */,
@@ -148,6 +165,7 @@
 				351AF27223D0BF410090EB7F /* DaySectionWidgetView.swift */,
 				351AF27423D0BF540090EB7F /* TransactionWidgetRow.swift */,
 				351AF27623D0DD240090EB7F /* CashBackTransactionRow.swift */,
+				351AF28F23D1B5580090EB7F /* HelperViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,15 +175,45 @@
 			children = (
 				351AF26B23D081570090EB7F /* TransactionsListViewModel.swift */,
 				351AF26D23D0819A0090EB7F /* TransactionViewModel.swift */,
+				351AF28623D199A50090EB7F /* TransactionWidgetRowViewModel.swift */,
+				351AF28A23D1AE2C0090EB7F /* DaySectionWidgetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		351AF26F23D0BB240090EB7F /* Models */ = {
+		351AF27A23D1814C0090EB7F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				351AF27D23D1854D0090EB7F /* Extensions */,
+				351AF27B23D1817E0090EB7F /* Constants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		351AF27D23D1854D0090EB7F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				351AF27E23D185590090EB7F /* DateFormatter.swift */,
+				351AF28023D189E50090EB7F /* String.swift */,
+				351AF28223D18BD20090EB7F /* DailyAmount.swift */,
+				351AF28423D190840090EB7F /* TransactionAmount.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		351AF28C23D1B3720090EB7F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				351AF28D23D1B38B0090EB7F /* GraphQLModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		351AF28F23D1B5580090EB7F /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Models;
+			path = HelperViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +347,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				351AF27F23D185590090EB7F /* DateFormatter.swift in Sources */,
+				351AF28123D189E50090EB7F /* String.swift in Sources */,
 				351AF23123CECED90090EB7F /* AppDelegate.swift in Sources */,
+				351AF28B23D1AE2C0090EB7F /* DaySectionWidgetViewModel.swift in Sources */,
+				351AF28523D190840090EB7F /* TransactionAmount.swift in Sources */,
+				351AF28E23D1B38B0090EB7F /* GraphQLModels.swift in Sources */,
+				351AF27C23D1817E0090EB7F /* Constants.swift in Sources */,
 				351AF26C23D081570090EB7F /* TransactionsListViewModel.swift in Sources */,
 				351AF23323CECED90090EB7F /* SceneDelegate.swift in Sources */,
 				351AF26923D07CC90090EB7F /* TransactionsList.swift in Sources */,
@@ -307,8 +361,10 @@
 				351AF27723D0DD240090EB7F /* CashBackTransactionRow.swift in Sources */,
 				351AF26623CF4B120090EB7F /* GraphAPI.swift in Sources */,
 				351AF27523D0BF540090EB7F /* TransactionWidgetRow.swift in Sources */,
+				351AF28723D199A50090EB7F /* TransactionWidgetRowViewModel.swift in Sources */,
 				351AF26E23D0819A0090EB7F /* TransactionViewModel.swift in Sources */,
 				351AF27323D0BF410090EB7F /* DaySectionWidgetView.swift in Sources */,
+				351AF28323D18BD20090EB7F /* DailyAmount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

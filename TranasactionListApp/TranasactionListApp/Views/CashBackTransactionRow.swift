@@ -10,33 +10,44 @@ import SwiftUI
 
 struct CashBackTransactionRow: View {
     
-    var model: TransactionWidget
+    var viewModel: TransactionWidgetRowViewModel
     
     var body: some View {
             HStack {
+                Spacer()
+                    .frame(width: 15.0)
                 HStack {
-                    Image("cashback")
-                        .resizable()
-                        .frame(width: 27, height: 27, alignment: .center)
+                    Spacer()
+                        .frame(width: 15.0)
+                    Image(viewModel.transactionImageName())
+                        .frame(width: 47, height: 47, alignment: .center)
                         .cornerRadius(20)
-                    
                     Spacer()
-                    Text(model.transaction.title)
+                        .frame(width: 15.0)
+                        .frame(width: 15)
+                    Text(viewModel.transactionTitle())
+                        .foregroundColor(cashBackTitleGreen)
                     Spacer()
-                    Text(model.transaction.amount.value)
+                    Text(viewModel.transactionAmount())
+                        .foregroundColor(cashBackTitleGreen)
                         .padding(10)
                 }
-                .padding(.leading, 20)
-                .cornerRadius(10, antialiased: true)
-                .background(Color(red: 241/255, green: 249/255, blue: 232/255))
+                .frame(height: 72)
+                .background(mainGreen)
+                .cornerRadius(16)
+                Spacer()
+                    .frame(width: 15.0)
             }
             .frame(height: 72)
-            
-    }
+        }
 }
 
 struct CashBackTransactionRow_Previews: PreviewProvider {
     static var previews: some View {
-        CashBackTransactionRow(model: TransactionWidget(transaction: Transaction(id: "1", title: "Hard Rock Cafe", amount: TransactionAmount(value: "-100", currencyCode: .gbp), type: .cashback)))
+        let model = TransactionWidget(transaction: Transaction(id: "1", title: "Hard Rock Cafe", amount: TransactionAmount(value: "-100", currencyCode: .gbp), type: .cashback))
+        let viewModel = TransactionWidgetRowViewModel(model: model )
+        return CashBackTransactionRow(viewModel: viewModel)
     }
 }
+
+

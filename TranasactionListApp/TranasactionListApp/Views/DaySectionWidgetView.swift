@@ -9,18 +9,37 @@
 import SwiftUI
 
 struct DaySectionWidgetView: View {
-    var model: DaySectionWidget
+    var viewModel: DaySectionWidgetViewModel
+    
     var body: some View {
-        HStack {
-            Text(model.date)
-            Spacer()
-            Text(model.amount.value)
-        }.frame(height: 60)
+        VStack {
+            if viewModel.shouldShowTopSeparator {
+                Rectangle()
+                    .fill(mainGray)
+                    .frame(height: 7)
+                    .edgesIgnoringSafeArea(.horizontal)
+            }
+            
+            HStack {
+                Spacer()
+                    .frame(width: 30)
+                Text(viewModel.dayDateString)
+                    .foregroundColor(dateGray)
+                Spacer()
+                Text(viewModel.dayAmountString)
+                    .foregroundColor(.black)
+                    .fontWeight(.regular)
+                Spacer()
+                    .frame(width: 30)
+            }.frame(height: 60)
+        }
     }
 }
 
 struct DaySectionWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        DaySectionWidgetView(model: DaySectionWidget(date: "21.01.2019", amount: DailyAmount(value: "-10", currencyCode: .gbp)))
+        let model = DaySectionWidget(date: "2019-11-18".dayWidgetFormattedDate(), amount: DailyAmount(value: "-48.00", currencyCode: .rub))
+        let viewModel = DaySectionWidgetViewModel(model: model, shouldShowTopSeparator: false)
+        return DaySectionWidgetView(viewModel: viewModel)
     }
 }
